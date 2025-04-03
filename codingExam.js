@@ -16,14 +16,12 @@ buttonone.addEventListener('click',function(){
     const monthlyPayment = (((interestRate / 12) * loanAmount) / (1 - Math.pow(1 + (interestRate / 12), (termYears * -12)))).toFixed(2);
     const totalInterest = (monthlyPayment * (termYears * 12)) - loanAmount;
     const totalLoanCost = loanAmount + totalInterest;
-
-    console.log(`Mortgage Term (Years): ${termYears}`);
-    console.log(`Mortgage Interest Rate: ${(interestRate * 100).toFixed(2)}%`);
-    console.log(`Mortgage Amount (Loan Principal): $${loanAmount.toFixed(2)}`);
-    console.log(`Total Interest Amount: $${totalInterest.toFixed(2)}`);
-    console.log(`Total Mortgage Amount: $${totalLoanCost.toFixed(2)}`);
-    console.log(`Monthly Mortgage Payment: $${monthlyPayment}`);
-
+    const results = document.getElementById('results');
+    results.innerHTML = ''
+    const values = document.createElement('p');
+        values.textContent = `Mortgage Term (Years): ${termYears} \n  Mortgage Interest Rate: ${(interestRate * 100).toFixed(2)}%\n Mortgage Amount (Loan Principal): $${loanAmount.toFixed(2)}\n 
+        Total Interest Amount: $${totalInterest.toFixed(2)}\n Total Mortgage Amount: $${totalLoanCost.toFixed(2)}\n Monthly Mortgage Payment: $${monthlyPayment}`
+        results.appendChild(values);
     let mortgageLoanBalance = totalLoanCost;
     let month = 1;
 
