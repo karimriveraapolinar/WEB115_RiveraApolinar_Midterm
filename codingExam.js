@@ -28,7 +28,9 @@ buttonone.addEventListener('click',function(){
     while (mortgageLoanBalance > 0) {
         mortgageLoanBalance -= monthlyPayment;
         mortgageLoanBalance = mortgageLoanBalance < 0 ? 0 : mortgageLoanBalance; 
-        console.log(`Month ${month}: Remaining Loan Balance: $${mortgageLoanBalance.toFixed(2)}`);
+        const balanceInfo = document.createElement('p');
+        balanceInfo.textContent = `Month ${month}: Remaining Loan Balance: $${mortgageLoanBalance.toFixed(2)}`;
+        results.appendChild(balanceInfo);
         month++;
     }
 
